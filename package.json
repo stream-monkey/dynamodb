@@ -1,6 +1,6 @@
 {
   "name": "dynamodb",
-  "version": "1.2.1",
+  "version": "1.1.2",
   "contributors": [
     "Ryan Fitzgerald <ryan@codebrewstudios.com>",
     "Greg Sabia Tucker <greg@narrowlabs.com>"
@@ -24,13 +24,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "async": "1.5.x",
+    "async": "^2.6.1",
     "aws-sdk": "^2.186.x",
-    "bunyan": "1.5.x",
+    "bunyan": "^1.8.12",
     "joi": "10.6.x",
     "lodash": "4.x.x",
-    "node-uuid": "1.4.x",
-    "stream-to-promise": "~2.2.0"
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "chai": "1.x.x",
