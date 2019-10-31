@@ -24,10 +24,11 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@hapi/joi": "^16.1.7",
     "async": "^2.6.1",
     "bunyan": "^1.8.12",
-    "joi": "10.6.x",
     "lodash": "4.x.x",
+    "stream-to-promise": "^2.2.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

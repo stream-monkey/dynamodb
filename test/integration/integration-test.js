@@ -7,7 +7,7 @@ var dynamo = require('../../index'),
     _      = require('lodash'),
     helper = require('../test-helper'),
     uuid   = require('uuid'),
-    Joi    = require('joi');
+    Joi    = require('@hapi/joi');
 
 chai.should();
 
@@ -84,7 +84,7 @@ describe('DynamoDB Integration Tests', function() {
     User = dynamo.define('dynamo-int-test-user', {
       hashKey : 'id',
       schema : {
-        id            : Joi.string().default(generateId, 'uuid.v4'),
+        id            : Joi.string().default(generateId),
         email         : Joi.string().required(),
         name          : Joi.string().allow(''),
         age           : Joi.number().min(10),
@@ -109,7 +109,7 @@ describe('DynamoDB Integration Tests', function() {
         content           : Joi.string(),
         num               : Joi.number(),
         tag               : Joi.string(),
-        PublishedDateTime : Joi.date().default(Date.now, 'Date.now()')
+        PublishedDateTime : Joi.date().default(Date.now)
       },
       indexes : [
         { hashKey : 'UserId', rangeKey : 'PublishedDateTime', type : 'local', name : 'PublishedDateTimeIndex'}

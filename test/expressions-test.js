@@ -4,7 +4,7 @@ var expressions = require('../lib/expressions'),
     chai        = require('chai'),
     expect      = chai.expect,
     Schema      = require('../lib/schema'),
-    Joi         = require('joi');
+    Joi         = require('@hapi/joi');
     //_         = require('lodash');
 
 chai.should();
@@ -212,7 +212,8 @@ describe('expressions', function () {
         id : 'foobar',
         names : { $del : 'tester'},
       };
-
+      // console.log(JSON.stringify(schema));
+      
       var result = expressions.serializeUpdateExpression(schema, updates);
 
       expect(result.expressions).to.eql({
@@ -223,7 +224,7 @@ describe('expressions', function () {
       });
 
       var stringSet = result.values[':names'];
-
+      
       expect(result.values).to.have.keys([':names']);
       expect(result.values[':names'].type).eql('String');
       expect(stringSet.values).to.eql([ 'tester']);

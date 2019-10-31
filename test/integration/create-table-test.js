@@ -6,7 +6,7 @@ var dynamo = require('../../index'),
     //async  = require('async'),
     _      = require('lodash'),
     helper = require('../test-helper'),
-    Joi    = require('joi');
+    Joi    = require('@hapi/joi');
 
 chai.should();
 
@@ -376,7 +376,7 @@ describe('Update Tables Integration Tests', function() {
         UserId            : Joi.string(),
         TweetID           : dynamo.types.uuid(),
         content           : Joi.string(),
-        PublishedDateTime : Joi.date().default(Date.now, 'Data.now()')
+        PublishedDateTime : Joi.date().default(Date.now)
       }
     });
 
@@ -396,7 +396,7 @@ describe('Update Tables Integration Tests', function() {
         UserId            : Joi.string(),
         TweetID           : dynamo.types.uuid(),
         content           : Joi.string(),
-        PublishedDateTime : Joi.date().default(Date.now, 'Date.now()')
+        PublishedDateTime : Joi.date().default(Date.now)
       },
       indexes : [
         { hashKey : 'UserId', rangeKey : 'PublishedDateTime', type : 'global', name : 'PublishedDateTimeIndex'}
